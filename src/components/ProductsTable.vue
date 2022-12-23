@@ -11,16 +11,12 @@
 </template>
 
 <script>
-    const productsList = [
-        {id:'1', name: 'house1', positon: 'Tree', animal: 'Squirel', price: 100},
-        {id:'2',name: 'house2', positon: 'Ground', animal: 'Deer', price: 150},
-        {id:'3',name: 'house3', positon: 'Ground', animal: 'Wolf', price: 300},
-    ]
+    import { store } from '@/sripts/store';
     export default  {
         name: 'ProductsTable',
         data() {
             return {
-                products: productsList
+                products: store.products
             }
         }
     }

@@ -1,7 +1,7 @@
 <template>
     <div class="searchBar">
       <input type="text">
-      <ButtonMulti msg="Search"/>
+      <ButtonMulti text="Search"/>
     </div>
   </template>
   

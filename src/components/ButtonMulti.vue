@@ -1,5 +1,5 @@
 <template>
-    <button>{{msg}}</button>
+    <button>{{text}}</button>
       
   </template>
   
@@ -7,7 +7,7 @@
   export default {
     name: 'ButtonMulti',
     props: {
-      msg: String
+      text: String
     }
   }
   </script>
