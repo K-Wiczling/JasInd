@@ -34,11 +34,9 @@
   
 <style scoped>
     .mainMenu {
-        width: 100%;
         border: 1px solid black;
         display: flex;
         justify-content: space-around;
-        padding: 10px;
         
     }
     button {

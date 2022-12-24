@@ -6,6 +6,7 @@
   <!-- Products List-->
   <PageContainer v-if="store.appState === 0" title="Products">
     <SearchBar/>
+    <SortProducts/>
     <ProductsTable/>
   </PageContainer>
 
@@ -29,6 +30,7 @@ import PageContainer from './components/PageContainer.vue';
 import { store } from './sripts/store';
 import AddProductForm from './components/AddProductForm.vue';
 import AddNewCategory from './components/AddNewCategory.vue';
+import SortProducts from './components/SortProducts.vue';
 
 export default {
   name: 'App',
@@ -39,12 +41,16 @@ export default {
     ProductsTable,
     PageContainer,
     AddProductForm,
-    AddNewCategory
+    AddNewCategory,
+    SortProducts
 }, 
 data() {
     return {
       store
     }
+  },
+  created () {
+    store.displayedProducts = store.products;
   }
 }
 </script>

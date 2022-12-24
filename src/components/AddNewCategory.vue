@@ -1,11 +1,11 @@
 <template>
     <div>
         <label for="name">Animal Name</label>
-        <input v-model="cAnimal" type="text" name="name">
+        <input v-model="cAnimal" type="text" name="name" placeholder="new animal">
         <ButtonMulti text="Add new animal" @click="addAnimal"/>
 
         <label for="name">Position Name</label>
-        <input v-model="cPosition" type="text" name="name">
+        <input v-model="cPosition" type="text" name="name" placeholder="new position">
         <ButtonMulti text="Add new positon" @click="addPosition"/>
 
     </div>

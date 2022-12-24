@@ -1,7 +1,7 @@
 <template>
     <div>
         <label for="name">Product Name</label>
-        <input v-model="pName" type="text" name="name">
+        <input v-model="pName" type="text" name="name" placeholder="Next product">
 
         <label for="position">Position</label>
         <select v-model="pPosition" name="position" id="position" >
@@ -38,9 +38,9 @@
             return {
                 store,
                 pName: '',
-                pPosition: '',
-                pAnimal: '',
-                pPrice: 1,
+                pPosition: store.positons[0].name,
+                pAnimal: store.animals[0].name,
+                pPrice: 100,
            
             }
         },

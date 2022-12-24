@@ -1,7 +1,8 @@
 <template>
-    <div class="searchBar">
+    <div id="searchBar">
       <input type="text">
       <ButtonMulti text="Search"/>
+      <ButtonMulti text="Clear"/>
     </div>
   </template>
   
@@ -21,7 +22,8 @@
   
   <style scoped>
     #searchBar {
-        width: 100%;
+        border: 1px solid black;
+        padding: 2px;
     }
     input {
         
