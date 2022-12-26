@@ -1,36 +1,21 @@
 <template>
  
     <div>
-
-        <select  v-model="currency" >
-            <option value="pln" selected>PLN</option>
-            <option value="eur">EUR</option>
-            <option value="gbp">GBP</option>
-            <option value="usd">USD</option>
-        </select>
-        <ButtonMulti text="Currency"/>
-        
         <table>
             <tr>
                 <th>
                     Product name 
-                    <ButtonMulti text="v"/>
-                    <ButtonMulti v-if="false" text="A"/>
                 </th>
                 <th>
                     Position
-                    <ButtonMulti text="v"/>
-                    <ButtonMulti v-if="false" text="A"/>
                 </th>
                 <th>
                     Animal
-                    <ButtonMulti text="v"/>
-                    <ButtonMulti v-if="false" text="A"/>
+                    
                 </th>
                 <th>
                     Price
-                    <ButtonMulti text="v"/>
-                    <ButtonMulti v-if="false" text="A"/>
+                   
                 </th>
                 <th>
                     *
@@ -51,7 +36,7 @@
 
 <script>
     import { store } from '@/sripts/store';
-    import ButtonMulti from './ButtonMulti.vue';
+    import ButtonMulti from '../small/ButtonMulti.vue';
     export default  {
     name: "ProductsTable",
     data() {
@@ -63,7 +48,7 @@
     methods: {
         currencyChange (value) {
             let price = '';
-            switch (this.currency) {
+            switch (store.currency) {
                 // PLN
                 case 'pln': {
                     price = value + 'zł'
@@ -100,6 +85,7 @@
 
 <style scoped>
     table {
+        margin: auto;
         margin-top: 20px;
         border-collapse: collapse;
     }

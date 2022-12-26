@@ -1,12 +1,13 @@
 <template>
-  <TitleMain msg="Jaś Industries"/>
-  <MainMenu />
+  <TitleMain/>
   
-
   <!-- Products List-->
   <PageContainer v-if="store.appState === 0" title="Products">
-    <SearchBar/>
-    <SortProducts/>
+    <div id='input-wrapper'>
+      <SearchBar/>
+      <SortProducts/>
+      <CurrencyChanger/>
+    </div>
     <ProductsTable/>
   </PageContainer>
 
@@ -23,26 +24,26 @@
 
 <script>
 import { store } from './sripts/store';
-import TitleMain from './components/TitleMain.vue'
-import SearchBar from './components/SearchBar.vue'
-import MainMenu from './components/MainMenu.vue';
-import ProductsTable from './components/ProductsTable.vue';
-import PageContainer from './components/PageContainer.vue';
-import AddProductForm from './components/AddProductForm.vue';
-import AddNewCategory from './components/AddNewCategory.vue';
-import SortProducts from './components/SortProducts.vue';
+import TitleMain from './components/header/TitleMain.vue'
+import SearchBar from './components/small/SearchBar.vue'
+import ProductsTable from './components/pages/ProductsTable.vue';
+import PageContainer from './components/pages/PageContainer.vue';
+import AddProductForm from './components/pages/AddProductForm.vue';
+import AddNewCategory from './components/pages/AddNewCategory.vue';
+import SortProducts from './components/small/SortProducts.vue';
+import CurrencyChanger from './components/small/CurrencyChanger.vue';
 
 export default {
   name: 'App',
   components: {
     TitleMain,
     SearchBar,
-    MainMenu,
     ProductsTable,
     PageContainer,
     AddProductForm,
     AddNewCategory,
-    SortProducts
+    SortProducts,
+    CurrencyChanger
 }, 
 data() {
     return {
@@ -56,6 +57,14 @@ data() {
 </script>
 
 <style>
+#input-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+:root {
+  --car: red;
+}
 #app {
   width: 100vw;
 }

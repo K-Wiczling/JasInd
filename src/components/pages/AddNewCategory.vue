@@ -14,9 +14,9 @@
   
 <script>
     import { store } from '@/sripts/store';
-    import product from '../sripts/products.js'
+    import product from '../../sripts/products.js'
 
-    import ButtonMulti from './ButtonMulti.vue';
+    import ButtonMulti from '../small/ButtonMulti.vue';
 
   
     export default {
@@ -42,7 +42,7 @@
     }
 </script>
   
-<style>
+<style scoped>
     label {
         display: block;
         margin-top: 30px;

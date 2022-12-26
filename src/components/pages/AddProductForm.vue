@@ -22,11 +22,11 @@
 </template>
   
 <script>
-    import product from '../sripts/products.js'
+    import product from '../../sripts/products.js'
     import { store } from '@/sripts/store';
     
 
-    import ButtonMulti from './ButtonMulti.vue';
+    import ButtonMulti from '../small/ButtonMulti.vue';
 
   
     export default {

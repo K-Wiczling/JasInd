@@ -14,12 +14,15 @@
   
   <style scoped>
     button {
-        background-color: black;
+        background-color: var(--secondColor);
         color: white;
-        margin: 1px;
+        border: 0;
+        padding-left: 5px;
+        padding-right: 5px;
     }
     button:hover {
-        background-color: #444;
+      color: black;
+      background-color: var(--brakerColor);
     }
   </style>
     

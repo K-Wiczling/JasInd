@@ -16,5 +16,6 @@ export const store = reactive({
   ],
   positons: [{id:0, name:'Tree'}, {id:1, name:'Ground'}, {id:2, name:'UnderGround'}],
   animals: [{id:0, name:'Deer'}, {id:1, name:'Bird'},{id:2, name:'Wolf'},{id:3, name:'Rabbit'}, {id:4, name:'Bear'}],
-  displayedProducts: ''
+  displayedProducts: '',
+  currency: 'pln'
 })
