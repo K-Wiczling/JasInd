@@ -22,12 +22,12 @@
 </template>
 
 <script>
+import { store } from './sripts/store';
 import TitleMain from './components/TitleMain.vue'
 import SearchBar from './components/SearchBar.vue'
 import MainMenu from './components/MainMenu.vue';
 import ProductsTable from './components/ProductsTable.vue';
 import PageContainer from './components/PageContainer.vue';
-import { store } from './sripts/store';
 import AddProductForm from './components/AddProductForm.vue';
 import AddNewCategory from './components/AddNewCategory.vue';
 import SortProducts from './components/SortProducts.vue';

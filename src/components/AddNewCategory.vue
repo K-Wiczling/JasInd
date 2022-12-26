@@ -1,12 +1,13 @@
 <template>
     <div>
-        <label for="name">Animal Name</label>
-        <input v-model="cAnimal" type="text" name="name" placeholder="new animal">
+        <label >Animal Name</label>
+        <input v-model="cAnimal" type="text"  placeholder="new animal">
         <ButtonMulti text="Add new animal" @click="addAnimal"/>
 
-        <label for="name">Position Name</label>
-        <input v-model="cPosition" type="text" name="name" placeholder="new position">
+        <label >Position Name</label>
+        <input v-model="cPosition" type="text"  placeholder="new position">
         <ButtonMulti text="Add new positon" @click="addPosition"/>
+
 
     </div>
 </template>

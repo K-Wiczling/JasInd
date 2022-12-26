@@ -7,10 +7,10 @@ class Products {
         if (Products.exists)
             return Products.instance;
     }
-
+   
     addNewProduct = (name, positon, animal, price) => {
         let i = store.products.length;
-        let id  = store.products[i-1].id;
+        let id  = store.products[i-1].id + 1;
         
         let validation = this.validateNewProduct(id, name, positon, animal, price);
         if(validation.result){

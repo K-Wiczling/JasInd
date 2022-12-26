@@ -48,7 +48,9 @@
             addProduct () {
                 console.log(this.pAnimal);
                 let result = product.addNewProduct(this.pName, this.pPosition, this.pAnimal, this.pPrice );
-                alert(result.msg);
+                store.displayedProducts = structuredClone(store.products);
+                console.log(store);
+                return result;
             }
         }   
     }
