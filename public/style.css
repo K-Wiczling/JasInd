@@ -3,16 +3,44 @@
     padding: 0 ;
     outline: 0 ;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 :root {
-    --mainColor: #557153;
+    /* --mainColor: #557153;
     --secondColor: #7D8F69;
     --thirdColor: #A9AF7E;
-    --brakerColor: #E6E5A3;
+    --brakerColor: #E6E5A3; */
+
+    --mainColor: #395144;
+    --secondColor: #4E6C50;
+    --thirdColor: #AA8B56;
+    --brakerColor: #F0EBCE;
 }
 h3 {
     display: block;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--mainColor);
+    margin-bottom: 5px ;
 }
 h2 {
+    margin-bottom: 20px;
     text-align: center;
+    font-size: 2rem;
+}
+.btn-small {
+    height: 20px;
+}
+
+.btn-medium {
+    height: 30px
+}
+@media only screen and (max-width: 850px) {
+    
+}
+@media only screen and (max-width: 450px) {
+
+    
+}
+@media only screen and (max-width: 360px) {
+   
 }
