@@ -1,10 +1,15 @@
 <template>
-  <div id="add-product-wrapper">
-    <label for="name">Product Name</label>
-    <input v-model="pName" type="text" name="name" placeholder="Next product" />
+  <div id="add-product-wrapper" class="form-wrapper">
+    <label class="input-1">Product Name</label>
+    <input
+      class="input-1"
+      v-model="pName"
+      type="text"
+      placeholder="Next product"
+    />
 
-    <label for="position">Position</label>
-    <select v-model="pPosition" name="position" id="position">
+    <label class="input-1">Position</label>
+    <select v-model="pPosition" class="input-1" id="position">
       <option
         v-for="pos in store.positons"
         v-bind:key="pos.id"
@@ -14,8 +19,8 @@
       </option>
     </select>
 
-    <label for="animal">Animal</label>
-    <select v-model="pAnimal" name="animal" id="animal">
+    <label class="input-1">Animal</label>
+    <select v-model="pAnimal" class="input-1" id="animal">
       <option
         v-for="animal in store.animals"
         v-bind:key="animal.id"
@@ -25,8 +30,8 @@
       </option>
     </select>
 
-    <label for="price">Price</label>
-    <input v-model="pPrice" type="number" name="price" />
+    <label class="input-1">Price</label>
+    <input v-model="pPrice" type="number" class="input-1" />
 
     <ButtonMulti text="Add" @click="addProduct" />
   </div>
@@ -34,7 +39,7 @@
 
 <script>
 import { store } from "@/sripts/store";
-import Validation from "../../sripts/validation"
+import Validation from "../../sripts/validation";
 import ButtonMulti from "../small/ButtonMulti.vue";
 
 export default {
@@ -63,7 +68,13 @@ export default {
         this.pPrice
       );
       if (valid.result) {
-        store.products.push({ id, name: this.pName, positon: this.pPosition, animal: this.pAnimal, price: this.pPrice });
+        store.products.push({
+          id,
+          name: this.pName,
+          positon: this.pPosition,
+          animal: this.pAnimal,
+          price: this.pPrice,
+        });
       }
       console.log(store.products);
       console.log(Validation);
@@ -82,10 +93,11 @@ export default {
 };
 </script>
 
-<style>
-input,
-select {
-  display: block;
-  margin-bottom: 15px;
+<style scoped>
+
+
+button {
+  width: 150px;
+  margin: auto;
 }
 </style>

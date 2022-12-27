@@ -3,7 +3,7 @@
     <ButtonMulti
       @click="setAppState(0)"
       :class="{ active: store.appState === 0 }"
-      text="List of Products"
+      text="Products"
     />
     <ButtonMulti
       @click="setAppState(1)"
@@ -54,7 +54,7 @@ button {
   border-radius: 5px 5px 0 0;
   height: 100%;
   box-shadow: 1px;
-  width: 150px;
+  width: 140px;
   transition: all 0.4s;
 }
 
@@ -63,4 +63,24 @@ button {
   font-weight: bold;
   width: 160px;
 }
+@media only screen and (max-width: 850px) {
+  .main-menu {
+    width: 100%;
+    justify-content: space-around;
+    justify-self: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  button {
+    font-size: 0.7rem;
+    width: 100px;
+  }
+  .active {
+    width: 110px;
+  }
+}
+
+
+@media only screen and (max-width: 360px) {}
 </style>

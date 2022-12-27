@@ -1,13 +1,13 @@
 <template>
   <div id="currency-wrapper">
     <h3>Currency</h3>
-    <select v-model="currency">
+    <select class="input-2" v-model="currency">
       <option value="pln" selected>PLN</option>
       <option value="eur">EUR</option>
       <option value="gbp">GBP</option>
       <option value="usd">USD</option>
     </select>
-    <ButtonMulti text="Clear Currency" @click="clearCurrency" />
+    <ButtonMulti class="btn-medium" text="Clear Currency" @click="clearCurrency" />
   </div>
 </template>
 

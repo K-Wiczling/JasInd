@@ -86,27 +86,7 @@ export default {
 </script>
 
 <style scoped>
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  /* box-shadow: inset 0 0 5px var(--secondColor);  */
-  border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--mainColor);
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--secondColor);
-}
 /* TABLE */
 #table-wrapper {
   overflow-y: scroll;
@@ -116,7 +96,7 @@ export default {
 table {
   margin: auto;
   margin-top: 20px;
-  width: calc(80vw);
+  width: 90vw;
   border-collapse: collapse;
 }
 td {

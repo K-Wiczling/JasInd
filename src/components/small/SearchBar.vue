@@ -2,8 +2,8 @@
   <div id="search-wrapper">
     <h3>Search</h3>
     <div id="search-bar">
-      <input type="text" v-model="searchText" @change="search" />
-      <ButtonMulti text="Clear search" @click="clearSearch" />
+      <input class="input-2" type="text" v-model="searchText" @change="search" />
+      <ButtonMulti class="btn-medium" text="Clear search" @click="clearSearch" />
     </div>
   </div>
 </template>
@@ -56,15 +56,10 @@ export default {
 
 <style scoped>
 #search-bar {
-  height: 20px;
 }
 #search-wrapper {
-  padding-right: 10px;
 }
-input {
-  height: 20px;
-}
-button {
-  height: 20px;
-}
+
+
+
 </style>

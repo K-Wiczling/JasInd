@@ -61,7 +61,7 @@ export default {
 
 <style>
 #input-wrapper {
-  width: 80vw;
+  width: 90vw;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -71,5 +71,19 @@ export default {
 }
 #app {
   width: 100vw;
+}
+
+
+@media only screen and (max-width: 850px) {
+  #input-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media only screen and (max-width: 450px) {
+  #input-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

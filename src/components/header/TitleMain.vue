@@ -1,6 +1,6 @@
 <template>
   <div class="title">
-    <h1>Jaś Industries</h1>
+    <h1 id="logo-header">Jaś Industries</h1>
     <MainMenu />
   </div>
 </template>
@@ -24,8 +24,7 @@ export default {
   border-bottom: 5px solid var(--thirdColor);
   background-color: var(--mainColor);
 }
-
-h1 {
+#logo-header {
   font-size: 1.6rem;
   color: var(--brakerColor);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -35,4 +34,20 @@ h1 {
   padding-left: 2px;
   margin: 0;
 }
+@media only screen and (max-width: 850px) {
+  .title {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
+  #logo-header {
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+
+}
+
+@media only screen and (max-width: 360px) {}
 </style>

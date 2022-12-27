@@ -1,43 +1,47 @@
 <template>
   <div id="product-modal" v-if="store.modalShow">
-    <ButtonMulti text="Close" @click="closeModal" />
-    <h2>{{ store.products[idd].name }}</h2>
-    <input
-      v-model="pName"
-      type="text"
-      name="name"
-      :placeholder="store.products[idd].name"
-    />
-    <br />
-    <p>Position: {{ store.products[idd].positon }}</p>
-    <select v-model="pPosition" name="position" id="position">
-      <option
-        v-for="pos in store.positons"
-        v-bind:key="pos.id"
-        :value="pos.name"
-      >
-        {{ pos.name }}
-      </option>
-    </select>
-    <br />
+    <div id="wrapper">
+      <div class="line">
+        <p>Name: <strong>{{ store.products[idd].name }}</strong></p>
+        <input
+          v-model="pName"
+          type="text"
+          name="name"
+          :placeholder="store.products[idd].name"
+        />
+      </div>
 
-    <p>Animal: {{ store.products[idd].animal }}</p>
-    <select v-model="pAnimal" name="animal" id="animal">
-      <option
-        v-for="animal in store.animals"
-        v-bind:key="animal.id"
-        :value="animal.name"
-      >
-        {{ animal.name }}
-      </option>
-    </select>
-    <br />
-
-    <p>Price: {{ store.products[idd].price }}</p>
-    <input v-model="pPrice" type="number" name="price" />
-
-    <br />
-    <ButtonMulti text="Update" @click="Update" />
+      <div class="line">
+        <p>Position: <strong>{{ store.products[idd].positon }}</strong></p>
+        <select v-model="pPosition" name="position" id="position">
+          <option
+            v-for="pos in store.positons"
+            v-bind:key="pos.id"
+            :value="pos.name"
+          >
+            {{ pos.name }}
+          </option>
+        </select>
+      </div>
+      <div class="line">
+        <p>Animal: <strong>{{ store.products[idd].animal }}</strong></p>
+        <select v-model="pAnimal" name="animal" id="animal">
+          <option
+            v-for="animal in store.animals"
+            v-bind:key="animal.id"
+            :value="animal.name"
+          >
+            {{ animal.name }}
+          </option>
+        </select>
+      </div>
+      <div class="line">
+        <p>Price: <strong>{{ store.products[idd].price }}</strong></p>
+        <input v-model="pPrice" type="number" name="price" />
+      </div>
+      <ButtonMulti text="Update" @click="Update" />
+    </div>
+    <ButtonMulti text="x" @click="closeModal" id="exit" />
   </div>
 </template>
 
@@ -107,9 +111,63 @@ export default {
   z-index: 100;
   color: white;
 }
+#wrapper {
+  border: 1px solid white;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+  margin-top: 25vh;
+  padding: 20px;
+}
+.line {
+  display: flex;
+  justify-content: space-between;
+}
+button#exit {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  font-weight: bold;
+}
 input,
 select,
 p {
-  display: inline;
+  height: 30px;
+}
+p {
+  font-size: 1.1rem;
+}
+input,
+select {
+  width: 200px;
+}
+@media only screen and (max-width: 850px) {
+  #wrapper {
+    width: 430px;
+  }
+  
+  p {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #wrapper {
+    width: 90vw;
+  }
+  input,
+  select {
+    width: 150px;
+  }
+  input,
+  select,
+  p {
+    height: 35px;
+  }
 }
 </style>

@@ -2,19 +2,19 @@
   <div id="sort-products">
     <h3>Sort</h3>
     <div id="sort-wrapper">
-      <select v-model="sortCategory">
+      <select class="input-2" v-model="sortCategory">
         <option value="name" selected>Name</option>
         <option value="positon">Position</option>
         <option value="animal">Animal</option>
         <option value="Price">Price</option>
       </select>
-      <select v-model="sortType" name="sortType" id="sortType">
+      <select class="input-2" v-model="sortType" name="sortType" id="sortType">
         <option value="ascending" selected>Ascending</option>
         <option value="descending">Descending</option>
       </select>
     </div>
-    <ButtonMulti text="Sort" @click="sorting" />
-    <ButtonMulti text="Clear" @click="clearSort" />
+    <ButtonMulti class="btn-medium" text="Sort" @click="sorting" />
+    <ButtonMulti class="btn-medium" text="Clear" @click="clearSort" />
   </div>
 </template>
 
@@ -74,5 +74,23 @@ export default {
   display: flex;
 }
 #sort-products {
+}
+.input-2 {
+  width: 125px;
+}
+button {
+  margin-right: 4px;
+  width: 73px;
+}
+
+@media only screen and (max-width: 850px) {
+    .input-2 {
+        width: 15vw;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .input-2 {
+        width: 35vw;
+    }
 }
 </style>

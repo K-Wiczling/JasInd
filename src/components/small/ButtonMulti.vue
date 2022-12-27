@@ -16,9 +16,8 @@ button {
   background-color: var(--secondColor);
   color: white;
   border: 0;
-  padding: 3px 5px;
   border-radius: 5px;
-  margin-right: 5px;
+  padding: 3px 5px;
 }
 button:hover {
   color: black;
