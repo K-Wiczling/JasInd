@@ -2,9 +2,11 @@
   <div id="product-modal" v-if="store.modalShow">
     <div id="wrapper">
       <div class="line">
-        <p>Name: <strong>{{ store.products[idd].name }}</strong></p>
+        <p>
+          Name: <strong>{{ store.products[idd].name }}</strong>
+        </p>
         <input
-          v-model="pName"
+          v-model="mName"
           type="text"
           name="name"
           :placeholder="store.products[idd].name"
@@ -12,8 +14,10 @@
       </div>
 
       <div class="line">
-        <p>Position: <strong>{{ store.products[idd].positon }}</strong></p>
-        <select v-model="pPosition" name="position" id="position">
+        <p>
+          Position: <strong>{{ store.products[idd].positon }}</strong>
+        </p>
+        <select v-model="mPosition" name="position" id="position">
           <option
             v-for="pos in store.positons"
             v-bind:key="pos.id"
@@ -24,8 +28,10 @@
         </select>
       </div>
       <div class="line">
-        <p>Animal: <strong>{{ store.products[idd].animal }}</strong></p>
-        <select v-model="pAnimal" name="animal" id="animal">
+        <p>
+          Animal: <strong>{{ store.products[idd].animal }}</strong>
+        </p>
+        <select v-model="mAnimal" name="animal" id="animal">
           <option
             v-for="animal in store.animals"
             v-bind:key="animal.id"
@@ -36,10 +42,12 @@
         </select>
       </div>
       <div class="line">
-        <p>Price: <strong>{{ store.products[idd].price }}</strong></p>
-        <input v-model="pPrice" type="number" name="price" />
+        <p>
+          Price: <strong>{{ store.products[idd].price }}zł</strong>
+        </p>
+        <input v-model="mPrice" type="number" name="price" />
       </div>
-      <ButtonMulti text="Update" @click="Update" />
+      <ButtonMulti text="Update" @click="updateProduct" />
     </div>
     <ButtonMulti text="x" @click="closeModal" id="exit" />
   </div>
@@ -48,6 +56,7 @@
 <script>
 import { store } from "@/sripts/store";
 import Outcome from "@/sripts/outcome";
+import validation from "../../sripts/validation";
 import ButtonMulti from "./ButtonMulti.vue";
 
 export default {
@@ -58,6 +67,10 @@ export default {
   data() {
     return {
       store,
+      mName: "",
+      mPosition: "",
+      mAnimal: "",
+      mPrice: "",
     };
   },
   methods: {
@@ -65,33 +78,52 @@ export default {
       store.modalShow = !store.modalShow;
     },
 
-    updateProduct(
-      id = 0,
-      name = null,
-      positon = null,
-      animal = null,
-      price = null
-    ) {
-      if (id === null) {
-        return Outcome.buildOutcome(false, "Can't update productwithout id");
+    updateProduct() {
+      if (typeof idd === "number") {
+        return Outcome.buildOutcome(false, "Can't update product without id");
       }
-      // let validation = this.validateNewProduct(id, name, positon, animal, price);
-      // if(){
 
-      if (name !== null) {
-        store.products[id].name = name;
+      let res;
+      let message = [];
+      if (this.mName !== "") {
+        res = validation.validateTextInput(this.mName);
+        if (res.result) {
+          store.products[this.idd].name = this.mName;
+          message.push("Name Updated");
+        } else {
+          message.push("Name Incorrect");
+        }
       }
-      if (positon !== null) {
-        store.products[id].positon = positon;
+      if (this.mPosition !== "") {
+        res = validation.validateTextInput(this.mPosition);
+        if (res.result) {
+          store.products[this.idd].positon = this.mPosition;
+          message.push("Position Updated");
+        } else {
+          message.push("Position Incorrect");
+        }
       }
-      if (animal !== null) {
-        store.products[id].animal = animal;
+      if (this.mAnimal !== "") {
+        res = validation.validateTextInput(this.mAnimal);
+        if (res.result) {
+          store.products[this.idd].positon = this.mAnimal;
+          message.push("Animal Updated");
+        } else {
+          message.push("Animal Incorrect");
+        }
       }
-      if (price !== null) {
-        store.products[id].price = price;
+      if (this.mPrice !== "") {
+        res = validation.validateNumberInput(this.mPrice);
+        if (res.result) {
+          store.products[this.idd].price = this.mPrice;
+          message.push("Price Updated");
+        } else {
+          message.push("Price Incorrect");
+        }
       }
-      // }
-      return Outcome.buildOutcome(true, "Product Updated");
+      if(message.length !== 0){
+        alert(message);
+      }
     },
   },
   components: {
@@ -151,7 +183,7 @@ select {
   #wrapper {
     width: 430px;
   }
-  
+
   p {
     font-size: 0.9rem;
   }

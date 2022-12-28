@@ -39,7 +39,7 @@
 
 <script>
 import { store } from "@/sripts/store";
-import Validation from "../../sripts/validation";
+import validation from "../../sripts/validation";
 import ButtonMulti from "../small/ButtonMulti.vue";
 
 export default {
@@ -58,35 +58,52 @@ export default {
   },
   methods: {
     addProduct() {
-      let i = store.products.length;
-      let id = store.products[i - 1].id + 1;
-      let valid = Validation.validateNewProduct(
-        id,
-        this.pName,
-        this.pPosition,
-        this.pAnimal,
-        this.pPrice
-      );
-      if (valid.result) {
-        store.products.push({
-          id,
-          name: this.pName,
-          positon: this.pPosition,
-          animal: this.pAnimal,
-          price: this.pPrice,
-        });
-      }
-      console.log(store.products);
-      console.log(Validation);
+      // Create new Id based on the last animal id
+      let id = validation.getUniqeId(store.products);
 
-      // let result = product.addNewProduct(
-      //   this.pName,
-      //   this.pPosition,
-      //   this.pAnimal,
-      //   this.pPrice
-      // );
-      store.displayedProducts = structuredClone(store.products);
-      // return result;
+      let message = [];
+      // Validate Id
+      let res = validation.validateId(id, store.products);
+      if (res.result && res.rest.newId) {
+        // Validate name text
+        res = validation.validateTextInput(this.pName, "name");
+        if (!res.result) {
+          message.push("Product name incorrect");
+        }
+
+        // Validate position text
+        res = validation.validateTextInput(this.pPosition, "position");
+        if (!res.result) {
+          message.push("Product position incorrect");
+        }
+
+        // Validate animal text
+        res = validation.validateTextInput(this.pAnimal, "animal");
+        if (!res.result) {
+          message.push("Product animal incorrect");
+        }
+
+        // Validate price number
+        res = validation.validateNumberInput(this.pPrice, "price");
+        if (!res.result) {
+          message.push("Product price incorrect");
+        }
+
+        if (message.length === 0) {
+          store.products.push({
+            id: id,
+            name: this.pName,
+            positon: this.pPosition,
+            animal: this.pAnimal,
+            price: this.pPrice,
+          });
+          store.displayedProducts = structuredClone(store.products);
+
+          message.push(`Product ${this.pName} added correctly!`);
+          this.pName == "";
+        }
+        alert(message);
+      }
     },
   },
   components: { ButtonMulti },
@@ -94,8 +111,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 button {
   width: 150px;
   margin: auto;
