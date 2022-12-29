@@ -1,31 +1,18 @@
 <template>
   <div id="add-product-wrapper" class="form-wrapper">
     <label class="input-1">Product Name</label>
-    <input
-      class="input-1"
-      v-model="pName"
-      type="text"
-      placeholder="Next product"
-    />
+    <input class="input-1" v-model="pName" type="text" placeholder="Next product" />
 
     <label class="input-1">Position</label>
     <select v-model="pPosition" class="input-1" id="position">
-      <option
-        v-for="pos in store.positons"
-        v-bind:key="pos.id"
-        :value="pos.name"
-      >
+      <option v-for="pos in store.positons" v-bind:key="pos.id" :value="pos.name">
         {{ pos.name }}
       </option>
     </select>
 
     <label class="input-1">Animal</label>
     <select v-model="pAnimal" class="input-1" id="animal">
-      <option
-        v-for="animal in store.animals"
-        v-bind:key="animal.id"
-        :value="animal.name"
-      >
+      <option v-for="animal in store.animals" v-bind:key="animal.id" :value="animal.name">
         {{ animal.name }}
       </option>
     </select>

@@ -1,20 +1,8 @@
 <template>
   <div class="main-menu">
-    <ButtonMulti
-      @click="setAppState(0)"
-      :class="{ active: store.appState === 0 }"
-      text="Products"
-    />
-    <ButtonMulti
-      @click="setAppState(1)"
-      :class="{ active: store.appState === 1 }"
-      text="New Product"
-    />
-    <ButtonMulti
-      @click="setAppState(2)"
-      :class="{ active: store.appState === 2 }"
-      text="New Category"
-    />
+    <ButtonMulti @click="setAppState(0)" :class="{ active: store.appState === 0 }" text="Products" />
+    <ButtonMulti @click="setAppState(1)" :class="{ active: store.appState === 1 }" text="New Product" />
+    <ButtonMulti @click="setAppState(2)" :class="{ active: store.appState === 2 }" text="New Category" />
   </div>
 </template>
 
@@ -30,6 +18,7 @@ export default {
     };
   },
   methods: {
+    // Change tabs
     setAppState(n) {
       store.appState = n;
     },
@@ -63,6 +52,7 @@ button {
   font-weight: bold;
   width: 160px;
 }
+
 @media only screen and (max-width: 850px) {
   .main-menu {
     width: 100%;
@@ -76,11 +66,11 @@ button {
     font-size: 0.7rem;
     width: 100px;
   }
+
   .active {
     width: 110px;
   }
 }
-
 
 @media only screen and (max-width: 360px) {}
 </style>

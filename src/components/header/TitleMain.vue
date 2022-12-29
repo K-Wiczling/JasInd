@@ -24,6 +24,7 @@ export default {
   border-bottom: 5px solid var(--thirdColor);
   background-color: var(--mainColor);
 }
+
 #logo-header {
   font-size: 1.6rem;
   color: var(--brakerColor);
@@ -34,20 +35,20 @@ export default {
   padding-left: 2px;
   margin: 0;
 }
+
 @media only screen and (max-width: 850px) {
   .title {
     display: grid;
     justify-items: center;
     grid-template-columns: 1fr;
   }
+
   #logo-header {
     padding: 15px;
   }
 }
 
-@media only screen and (max-width: 450px) {
-
-}
+@media only screen and (max-width: 450px) {}
 
 @media only screen and (max-width: 360px) {}
 </style>

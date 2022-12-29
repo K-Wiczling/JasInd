@@ -3,24 +3,14 @@
     <!-- Add new animal -->
     <div class="form-wrapper">
       <label class="input-1">Animal Name</label>
-      <input
-        class="input-1"
-        v-model="cAnimal"
-        type="text"
-        placeholder="new animal"
-      />
+      <input class="input-1" v-model="cAnimal" type="text" placeholder="new animal" />
       <ButtonMulti text="Add new animal" @click="addAnimal" />
     </div>
 
     <!-- Add new position -->
     <div class="form-wrapper">
       <label class="input-1">Position Name</label>
-      <input
-        class="input-1"
-        v-model="cPosition"
-        type="text"
-        placeholder="new position"
-      />
+      <input class="input-1" v-model="cPosition" type="text" placeholder="new position" />
       <ButtonMulti text="Add new positon" @click="addPosition" />
     </div>
   </div>
@@ -93,4 +83,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

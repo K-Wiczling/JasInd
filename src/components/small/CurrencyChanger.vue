@@ -24,11 +24,13 @@ export default {
     };
   },
   methods: {
+    // Return to the PLN prices
     clearCurrency() {
       this.currency = "pln";
     },
   },
   watch: {
+    // Change Currency
     currency() {
       store.currency = this.currency;
     },
@@ -38,10 +40,6 @@ export default {
 </script>
 
 <style scoped>
-#currency-wrapper {
-}
-select {
-}
 #options {
   width: 20px;
 }

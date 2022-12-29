@@ -19,6 +19,7 @@ button {
   border-radius: 5px;
   padding: 3px 5px;
 }
+
 button:hover {
   color: black;
   background-color: var(--brakerColor);

@@ -5,12 +5,7 @@
         <p>
           Name: <strong>{{ store.products[id].name }}</strong>
         </p>
-        <input
-          v-model="mName"
-          type="text"
-          name="name"
-          :placeholder="product.name"
-        />
+        <input v-model="mName" type="text" name="name" :placeholder="product.name" />
       </div>
 
       <div class="line">
@@ -18,11 +13,7 @@
           Position: <strong>{{ store.products[id].positon }}</strong>
         </p>
         <select v-model="mPosition" name="position" id="position">
-          <option
-            v-for="pos in store.positons"
-            v-bind:key="pos.id"
-            :value="pos.name"
-          >
+          <option v-for="pos in store.positons" v-bind:key="pos.id" :value="pos.name">
             {{ pos.name }}
           </option>
         </select>
@@ -32,25 +23,21 @@
           Animal: <strong>{{ store.products[id].animal }}</strong>
         </p>
         <select v-model="mAnimal" name="animal" id="animal">
-          <option
-            v-for="animal in store.animals"
-            v-bind:key="animal.id"
-            :value="animal.name"
-          >
+          <option v-for="animal in store.animals" v-bind:key="animal.id" :value="animal.name">
             {{ animal.name }}
           </option>
         </select>
       </div>
       <div class="line">
         <p>
-          Price: <strong>{{currencyChange(store.products[id].price, true) }}</strong>
+          Price:
+          <strong>{{ validation.currencyChange(store.products[id].price, true) }}</strong>
         </p>
         <input v-model="mPrice" type="number" name="price" />
-        
       </div>
       <div class="line" v-if="store.currency !== 'pln'">
         <p>
-          Price: <strong>{{currencyChange(store.products[id].price) }}</strong>
+          Price: <strong>{{ validation.currencyChange(store.products[id].price) }}</strong>
         </p>
       </div>
       <ButtonMulti text="Update" @click="updateProduct" />
@@ -75,6 +62,7 @@ export default {
   data() {
     return {
       store,
+      validation,
       mName: "",
       mPosition: "",
       mAnimal: "",
@@ -82,10 +70,12 @@ export default {
     };
   },
   methods: {
+    // Close Modal and gat back to the product list
     closeModal() {
       store.modalShow = !store.modalShow;
     },
 
+    // Change Valuse of the difrent product fields
     updateProduct() {
       if (typeof this.id !== "number") {
         console.log("dsd");
@@ -138,13 +128,12 @@ export default {
       }
       store.displayedProducts = structuredClone(store.products);
     },
+
+    // Removeing the prodact from the list 
     removeProduct() {
       this.closeModal();
       store.products.splice(this.id, 1);
       store.displayedProducts = structuredClone(store.products);
-    },
-    currencyChange (price, getPln) {
-      return validation.currencyChange(price, getPln)
     },
   },
   components: {
@@ -164,6 +153,7 @@ export default {
   z-index: 100;
   color: white;
 }
+
 #wrapper {
   border: 1px solid white;
   border-radius: 10px;
@@ -175,10 +165,12 @@ export default {
   margin-top: 25vh;
   padding: 20px;
 }
+
 .line {
   display: flex;
   justify-content: space-between;
 }
+
 button#exit {
   position: fixed;
   top: 0;
@@ -188,21 +180,26 @@ button#exit {
   border-radius: 100%;
   font-weight: bold;
 }
+
 input,
 select,
 p {
   height: 30px;
 }
+
 p {
   font-size: 1.1rem;
 }
+
 input,
 select {
   width: 200px;
 }
+
 button {
   margin-bottom: 3px;
 }
+
 @media only screen and (max-width: 850px) {
   #wrapper {
     width: 430px;
@@ -212,14 +209,17 @@ button {
     font-size: 0.9rem;
   }
 }
+
 @media only screen and (max-width: 450px) {
   #wrapper {
     width: 90vw;
   }
+
   input,
   select {
     width: 150px;
   }
+
   input,
   select,
   p {

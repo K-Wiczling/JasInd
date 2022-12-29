@@ -21,16 +21,17 @@ export default {
     };
   },
   methods: {
+    // Clear search field and show all products
     clearSearch() {
       store.displayedProducts = structuredClone(store.products);
       this.searchText = "";
     },
   },
   watch: {
+    // Search prodacts fields to contain the search texxt
     searchText() {
       let tmpProducts = [];
       for (const product of store.products) {
-        // Search names of products
         for (let column in product) {
           if (column.toString().toLowerCase() !== "id") {
             if (
@@ -55,11 +56,5 @@ export default {
 </script>
 
 <style scoped>
-#search-bar {
-}
-#search-wrapper {
-}
-
-
 
 </style>

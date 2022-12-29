@@ -32,10 +32,11 @@ export default {
     };
   },
   methods: {
+    // Back to the unsorted product list
     clearSort() {
-      console.log(store.products);
       store.displayedProducts = structuredClone(store.products);
     },
+    // Sorting method for all columns
     sorting() {
       let tmpProducts = structuredClone(store.displayedProducts);
       tmpProducts.sort((a, b) => {
@@ -73,11 +74,11 @@ export default {
 #sort-wrapper {
   display: flex;
 }
-#sort-products {
-}
+
 .input-2 {
   width: 125px;
 }
+
 button {
   margin-right: 4px;
   width: 73px;
@@ -88,6 +89,7 @@ button {
     width: 15vw;
   }
 }
+
 @media only screen and (max-width: 450px) {
   .input-2 {
     width: 35vw;

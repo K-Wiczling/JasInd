@@ -24,7 +24,6 @@ export const store = reactive({
     { id: 8, name: "house2", positon: "Ground", animal: "Deer", price: 660 },
     { id: 9, name: "house3", positon: "Ground", animal: "Wolf", price: 300 },
     { id: 13, name: "BirdVilla", positon: "Tree", animal: "Bird", price: 240 },
-
   ],
   positons: [
     { id: 0, name: "Tree" },
