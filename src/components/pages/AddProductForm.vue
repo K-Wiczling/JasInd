@@ -64,6 +64,7 @@ export default {
       let message = [];
       // Validate Id
       let res = validation.validateId(id, store.products);
+      console.log(res, id);
       if (res.result && res.rest.newId) {
         // Validate name text
         res = validation.validateTextInput(this.pName, "name");

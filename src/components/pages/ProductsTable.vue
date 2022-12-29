@@ -1,6 +1,6 @@
 <template>
   <div id="table-wrapper">
-    <ProductModal :idd="idd" />
+    <ProductModal :id='idd' :product="product" />
     <table>
       <tr>
         <th>Product name</th>
@@ -11,7 +11,7 @@
       <tr
         v-for="product in store.displayedProducts"
         v-bind:key="product.id"
-        @click="showProduct(product.id)"
+        @click="showProduct(product)"
       >
         <td>{{ product.name }}</td>
         <td>{{ product.positon }}</td>
@@ -24,6 +24,7 @@
 
 <script>
 import { store } from "@/sripts/store";
+import validation from "@/sripts/validation";
 import ProductModal from "../small/ProductModal.vue";
 
 export default {
@@ -33,50 +34,19 @@ export default {
       store,
       currency: "pln",
       idd: 0,
+      product: {},
     };
   },
   methods: {
     // Open modal and show prodact with id
-    showProduct(id) {
-      this.idd = id;
+    showProduct(product) {
+      this.product = product;
+      this.idd = store.displayedProducts.indexOf(this.product);
+
       store.modalShow = !store.modalShow;
     },
-    // base on the used currency change price format
-    currencyChange(value) {
-      let price = "";
-      switch (store.currency) {
-        // PLN 
-        case "pln":
-          {
-            price = value + "zł";
-          }
-          break;
-
-        // EUR
-        case "eur":
-          {
-            price = Math.round(value / 4.65) + "€";
-          }
-          break;
-
-        // USD
-        case "usd":
-          {
-            price = "$" + Math.round(value / 4.37);
-          }
-          break;
-
-        // gbp
-        case "gbp":
-          {
-            price = "£" + Math.round(value / 5.27);
-          }
-          break;
-
-        default:
-          break;
-      }
-      return price;
+    currencyChange (price) {
+      return validation.currencyChange(price)
     },
   },
   components: {
@@ -86,7 +56,6 @@ export default {
 </script>
 
 <style scoped>
-
 /* TABLE */
 #table-wrapper {
   overflow-y: scroll;

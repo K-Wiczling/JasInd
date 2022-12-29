@@ -39,8 +39,8 @@ export default {
     sorting() {
       let tmpProducts = structuredClone(store.displayedProducts);
       tmpProducts.sort((a, b) => {
-        const nameA = a[this.sortCategory.toLowerCase()].toLowerCase();
-        const nameB = b[this.sortCategory.toLowerCase()].toLowerCase();
+        let nameA = a[this.sortCategory.toLowerCase()];
+        let nameB = b[this.sortCategory.toLowerCase()];
 
         if (this.sortType === "ascending") {
           if (nameA < nameB) {
@@ -84,13 +84,13 @@ button {
 }
 
 @media only screen and (max-width: 850px) {
-    .input-2 {
-        width: 15vw;
-    }
+  .input-2 {
+    width: 15vw;
+  }
 }
 @media only screen and (max-width: 450px) {
-    .input-2 {
-        width: 35vw;
-    }
+  .input-2 {
+    width: 35vw;
+  }
 }
 </style>
